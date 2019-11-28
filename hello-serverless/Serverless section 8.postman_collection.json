@@ -1,0 +1,48 @@
+{
+	"info": {
+		"_postman_id": "e6d84409-53b1-40a6-8ed0-ad29413701f4",
+		"name": "Serverless section 8",
+		"description": "Stuff for section 8 of the Udemy AWS Lambda course, on Serverless Framework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST request for add function on Serverless",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"num1\": 5,\n\t\"num2\" 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/math/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"math",
+						"add"
+					]
+				},
+				"description": "POST request for add function on Serverless"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

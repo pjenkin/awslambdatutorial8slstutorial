@@ -86,7 +86,32 @@ functions:
           method: post
           cors: true          # will set OPTIONS / pre-flight Request
 
-
+# 8-172 HTTP Body request mapping and Lambda Integration
+    
+  addBm:
+    handler: add-bm.add       # as usual filename.function-name
+    events:
+      - http:
+          path: math/add-bm
+          method: post
+          integration: lambda # default is Lambda *proxy* integration; instead specify Lambda integration
+          request:
+            template:         # '>' for multiline; VTL used https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html
+              application/json: >   
+                #set($inputRoot = $input.path('$'))
+                {
+                  "num1": $inputRoot.input.operand1,
+                  "num2": $inputRoot.input.operand2
+                }
+          response:
+            headers:
+              Access-Control-Allow-Origin: "'*''"
+              Content-Type: "'application/json'"
+            template: >
+              #set($inputRoot = $input.path('$'))
+              {
+                "result": $inputRoot
+              }
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

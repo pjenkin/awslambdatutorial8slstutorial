@@ -42,6 +42,47 @@
 				"description": "POST request for add function on Serverless"
 			},
 			"response": []
+		},
+		{
+			"name": "add-bm POST check (HTTP Request body mapping)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"input\":\n\t{\n\t\t\"operand1\" : 5,\n\t\t\"operand2\" : 3\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jlxrumq6a4.execute-api.eu-west-2.amazonaws.com/prod/math/add-bm",
+					"protocol": "https",
+					"host": [
+						"jlxrumq6a4",
+						"execute-api",
+						"eu-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"math",
+						"add-bm"
+					]
+				},
+				"description": "8-173 Testing the API Gateway Mappings\nURL copy/pasted from output of serverless deploy"
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

@@ -20,6 +20,9 @@ service: hello-serverless
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -65,6 +68,13 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    vpc:
+      securityGroupIds:
+        - sg-8861bde6 
+      subnetIds:
+        - subnet-406b1529
+        - subnet-47c3793d
+        - subnet-fb35fcb7
 
   add:
     handler: add.add          # 'add' function in add.js

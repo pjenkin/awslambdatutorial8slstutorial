@@ -25,6 +25,9 @@ provider:
   runtime: nodejs12.x
   region: eu-west-2       # region additionally specified 
   stage: dev              # stage additionally specified 
+  memorySize: 128         # 8-167 Global properties configured here - overrrideable within functions &c
+  timeout: 3
+
 
 # you can overwrite defaults here
 #  stage: dev
@@ -62,6 +65,19 @@ provider:
 functions:
   hello:
     handler: handler.hello
+
+  add:
+    handler: add.add          # 'add' function in add.js
+    memorySize: 512
+    timeout: 10               # override Serverless's defaults (which overrode AWS Lambda's own)
+    events:
+      - http:
+          path: math/add      # NB extra indent
+          method: post
+          cors: true          # will set OPTIONS / pre-flight Request
+
+
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

@@ -20,7 +20,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"num1\": 5,\n\t\"num2\" 3\n}",
+					"raw": "{\n\t\"num1\": 5,\n\t\"num2\": 3\n}",
 					"options": {
 						"raw": {
 							"language": "json"
